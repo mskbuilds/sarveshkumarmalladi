@@ -187,6 +187,7 @@
   border-radius: 50%;
   transform: translate(-50%, -50%);
   animation: spin 30s linear infinite;
+  pointer-events: none;
 }
 
 .orbit-reverse { animation: spin 45s linear infinite reverse; }
@@ -202,6 +203,7 @@
   left: 50%;
   transform: translateX(-50%);
   animation: counter-spin 30s linear infinite;
+  pointer-events: auto;
 }
 
 .orbit-reverse .orbit-node { animation: counter-spin 45s linear infinite reverse; }
