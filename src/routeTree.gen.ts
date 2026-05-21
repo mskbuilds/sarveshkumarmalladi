@@ -9,8 +9,26 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TravelRouteImport } from './routes/travel'
+import { Route as SketchesRouteImport } from './routes/sketches'
+import { Route as RoboticsRouteImport } from './routes/robotics'
 import { Route as IndexRouteImport } from './routes/index'
 
+const TravelRoute = TravelRouteImport.update({
+  id: '/travel',
+  path: '/travel',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SketchesRoute = SketchesRouteImport.update({
+  id: '/sketches',
+  path: '/sketches',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RoboticsRoute = RoboticsRouteImport.update({
+  id: '/robotics',
+  path: '/robotics',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +37,61 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/robotics': typeof RoboticsRoute
+  '/sketches': typeof SketchesRoute
+  '/travel': typeof TravelRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/robotics': typeof RoboticsRoute
+  '/sketches': typeof SketchesRoute
+  '/travel': typeof TravelRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/robotics': typeof RoboticsRoute
+  '/sketches': typeof SketchesRoute
+  '/travel': typeof TravelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/robotics' | '/sketches' | '/travel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/robotics' | '/sketches' | '/travel'
+  id: '__root__' | '/' | '/robotics' | '/sketches' | '/travel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  RoboticsRoute: typeof RoboticsRoute
+  SketchesRoute: typeof SketchesRoute
+  TravelRoute: typeof TravelRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/travel': {
+      id: '/travel'
+      path: '/travel'
+      fullPath: '/travel'
+      preLoaderRoute: typeof TravelRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sketches': {
+      id: '/sketches'
+      path: '/sketches'
+      fullPath: '/sketches'
+      preLoaderRoute: typeof SketchesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/robotics': {
+      id: '/robotics'
+      path: '/robotics'
+      fullPath: '/robotics'
+      preLoaderRoute: typeof RoboticsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,7 +104,20 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  RoboticsRoute: RoboticsRoute,
+  SketchesRoute: SketchesRoute,
+  TravelRoute: TravelRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}
