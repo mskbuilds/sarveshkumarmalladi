@@ -2,9 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { Cpu, Pencil, Compass } from "lucide-react";
 
 const nodes = [
-  { to: "/robotics" as const, label: "Robotics", icon: Cpu, orbit: 280, reverse: false },
-  { to: "/sketches" as const, label: "Sketches", icon: Pencil, orbit: 360, reverse: true },
-  { to: "/travel" as const, label: "Travel", icon: Compass, orbit: 440, reverse: false },
+  { to: "/robotics" as const, label: "Robotics", icon: Cpu, orbit: 440, reverse: false },
+  { to: "/sketches" as const, label: "Sketches", icon: Pencil, orbit: 520, reverse: true },
+  { to: "/travel" as const, label: "Travel", icon: Compass, orbit: 600, reverse: false },
 ];
 
 export function Planet() {
