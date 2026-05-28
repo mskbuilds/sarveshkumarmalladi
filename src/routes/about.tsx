@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Link } from "@tanstack/react-router";
 import { ArrowLeft, MapPin, Briefcase, Code2, Rocket } from "lucide-react";
 import { SiteHeader } from "@/components/SiteHeader";
+import avatarImg from "@/assets/avatar.jpg";
 
 export const Route = createFileRoute("/about")({
   head: () => ({
@@ -47,17 +48,9 @@ function AboutPage() {
             <div className="relative">
               <div className="w-64 h-64 md:w-72 md:h-72 rounded-full border-2 border-gold/30 bg-card flex items-center justify-center overflow-hidden mx-auto md:mx-0">
                 <img
-                  src="/avatar.jpg"
-                  alt="Profile"
+                  src={avatarImg}
+                  alt="Portrait of the builder behind Nexus_01"
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                    const target = e.target as HTMLImageElement;
-                    target.style.display = "none";
-                    const parent = target.parentElement;
-                    if (parent) {
-                      parent.innerHTML = `<div class="flex flex-col items-center justify-center text-muted-foreground font-mono text-sm"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round" class="mb-2 opacity-50"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>Upload your photo</div>`;
-                    }
-                  }}
                 />
               </div>
               <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 md:left-12 md:translate-x-0 bg-background border border-gold/30 px-4 py-1.5 rounded-full font-mono text-[10px] uppercase tracking-widest text-gold">
