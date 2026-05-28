@@ -6,6 +6,8 @@ interface Item {
   title: string;
   meta: string;
   description: string;
+  image?: string;
+  imageAlt?: string;
 }
 
 interface TopicPageProps {
@@ -49,6 +51,16 @@ export function TopicPage({ code, title, tagline, intro, items }: TopicPageProps
                 </div>
                 <div>
                   <h2 className="text-2xl font-mono text-foreground mb-3">{item.title}</h2>
+                  {item.image && (
+                    <div className="mb-4 overflow-hidden border border-border bg-card">
+                      <img
+                        src={item.image}
+                        alt={item.imageAlt ?? item.title}
+                        loading="lazy"
+                        className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                      />
+                    </div>
+                  )}
                   <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </div>
