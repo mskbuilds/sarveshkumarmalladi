@@ -12,6 +12,7 @@ import { Route as rootRouteImport } from './routes/__root'
 import { Route as TravelRouteImport } from './routes/travel'
 import { Route as SketchesRouteImport } from './routes/sketches'
 import { Route as RoboticsRouteImport } from './routes/robotics'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 
 const TravelRoute = TravelRouteImport.update({
@@ -29,6 +30,11 @@ const RoboticsRoute = RoboticsRouteImport.update({
   path: '/robotics',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -37,12 +43,14 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/robotics': typeof RoboticsRoute
   '/sketches': typeof SketchesRoute
   '/travel': typeof TravelRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/robotics': typeof RoboticsRoute
   '/sketches': typeof SketchesRoute
   '/travel': typeof TravelRoute
@@ -50,20 +58,22 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
   '/robotics': typeof RoboticsRoute
   '/sketches': typeof SketchesRoute
   '/travel': typeof TravelRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/robotics' | '/sketches' | '/travel'
+  fullPaths: '/' | '/about' | '/robotics' | '/sketches' | '/travel'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/robotics' | '/sketches' | '/travel'
-  id: '__root__' | '/' | '/robotics' | '/sketches' | '/travel'
+  to: '/' | '/about' | '/robotics' | '/sketches' | '/travel'
+  id: '__root__' | '/' | '/about' | '/robotics' | '/sketches' | '/travel'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
   RoboticsRoute: typeof RoboticsRoute
   SketchesRoute: typeof SketchesRoute
   TravelRoute: typeof TravelRoute
@@ -92,6 +102,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof RoboticsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -104,6 +121,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
   RoboticsRoute: RoboticsRoute,
   SketchesRoute: SketchesRoute,
   TravelRoute: TravelRoute,

@@ -8,6 +8,9 @@ export function SiteHeader() {
           ◉ NEXUS_01
         </Link>
         <nav className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
+          <Link to="/about" className="text-muted-foreground hover:text-gold transition-colors" activeProps={{ className: "text-gold" }}>
+            About
+          </Link>
           <Link to="/robotics" className="text-muted-foreground hover:text-gold transition-colors" activeProps={{ className: "text-gold" }}>
             Robotics
           </Link>
