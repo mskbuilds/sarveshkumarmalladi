@@ -32,7 +32,8 @@ function TravelPage() {
           meta: "55.0N 8.4W",
           title: "Dungloe, Ireland",
           description: "Rock climbing sea stacks and sea cliffs where the water meets the rock. Sun, wind, and the constant churn of the Atlantic — me perched on a sliver of stone above it all.",
-          // image: "/travel/dungloe.jpg",
+          image: dungloeImg,
+          imageAlt: "Climbing a sea cliff above the Atlantic in Dungloe, Ireland",
         },
         {
           meta: "60.4N 5.3E",
