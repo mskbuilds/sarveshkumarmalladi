@@ -5,9 +5,9 @@ export const Route = createFileRoute("/robotics")({
   head: () => ({
     meta: [
       { title: "Robotics — Nexus_01" },
-      { name: "description", content: "Robotics projects: autonomous systems, embedded firmware, and mechanical builds." },
+      { name: "description", content: "AI, controls, and autonomous agents: VLA models, trading bots, and ROS2/PyTorch stacks." },
       { property: "og:title", content: "Robotics — Nexus_01" },
-      { property: "og:description", content: "Autonomous systems, embedded firmware, and mechanical builds." },
+      { property: "og:description", content: "AI-driven control, perception, and decision-making across robotic arms and trading agents." },
     ],
   }),
   component: RoboticsPage,
@@ -18,28 +18,28 @@ function RoboticsPage() {
     <TopicPage
       code="// SECTOR_A · ROBOTICS"
       title="Robotics"
-      tagline="Mechanical minds & autonomous systems"
-      intro="From quadruped locomotion to swarm coordination, I build machines that think with their joints. Below: select transmissions from the workshop."
+      tagline="Intelligent systems & autonomous agents"
+      intro="A workbench for AI, controls, and autonomous decision-making — from vision-language-action models steering robotic arms to trading agents reading the market. Built on ROS2, PyTorch, and Docker."
       items={[
         {
           meta: "01 · 2025",
-          title: "Quadruped Gait Controller",
-          description: "Reinforcement-learned trotting policy deployed on a custom 12-DOF quadruped. Sim-to-real transfer with domain randomization; field-tested across gravel and grass.",
+          title: "VLA Playground",
+          description: "An experimental sandbox for agentic vision-language-action models driving a robotic arm. Wires perception, language grounding, and low-level control into a single loop. Stack: ROS2, PyTorch, Docker.",
         },
         {
-          meta: "02 · 2024",
-          title: "SLAM-equipped Rover",
-          description: "ROS2 + RPLidar A2 + a Jetson Orin. Builds occupancy maps of unknown indoor environments and navigates to user-tagged waypoints autonomously.",
+          meta: "02 · 2025",
+          title: "Algorithmic Trading Bot",
+          description: "Autonomous trading agent with ML-based signal generation, position sizing, and risk controls. Treats markets as a partially-observable environment and trades the policy live.",
         },
         {
           meta: "03 · 2024",
-          title: "Swarm of Tabletop Bots",
-          description: "Eight ESP32-powered micro-bots communicating over ESP-NOW, executing flocking and shape-formation behaviors with onboard IMU feedback.",
+          title: "Vision Perception Stack",
+          description: "ResNet-backed perception pipeline integrated with ROS2 for real-time scene understanding — object detection, segmentation, and pose estimation feeding downstream controllers.",
         },
         {
-          meta: "04 · 2023",
-          title: "Tactile Gripper",
-          description: "Soft silicone fingers wrapped with capacitive sensors, capable of grasping objects from a feather to a wrench without crushing either.",
+          meta: "04 · 2024",
+          title: "Language Task Planner",
+          description: "BERT-powered instruction parser that decomposes natural-language commands into structured action sequences for the arm. Bridges human intent and low-level motion primitives.",
         },
       ]}
     />
