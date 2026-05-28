@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TopicPage } from "@/components/TopicPage";
+import dungloeImg from "@/assets/travel-dungloe.jpg";
 
 export const Route = createFileRoute("/travel")({
   head: () => ({
