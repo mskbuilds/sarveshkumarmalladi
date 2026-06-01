@@ -1,6 +1,9 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { TopicPage } from "@/components/TopicPage";
 import dungloeImg from "@/assets/travel-dungloe.jpg";
+import pragueImg from "@/assets/travel-prague.jpg";
+import murrenImg1 from "@/assets/travel-murren-1.jpg";
+import murrenImg2 from "@/assets/travel-murren-2.jpg";
 
 export const Route = createFileRoute("/travel")({
   head: () => ({
@@ -26,7 +29,8 @@ function TravelPage() {
           meta: "50.1N 14.4E",
           title: "Prague, Czech Republic",
           description: "Where old meets new — walking the cobbled streets felt like stepping into a medieval video-game town. The food was as memorable as the mid-century architecture. Also: my first sky dive, free-falling over Bohemian countryside.",
-          // image: "/travel/prague.jpg",
+          image: pragueImg,
+          imageAlt: "Free-falling over Prague on a first sky dive",
         },
         {
           meta: "55.0N 8.4W",
@@ -45,7 +49,8 @@ function TravelPage() {
           meta: "46.5N 7.9E",
           title: "Mürren, Switzerland",
           description: "Via ferrata along the open face of the mountain — clipped into a steel cable with nothing but the Lauterbrunnen valley a thousand meters below. Equal parts terror and clarity.",
-          // image: "/travel/murren.jpg",
+          images: [murrenImg1, murrenImg2],
+          imageAlt: "Via ferrata on the open face above the Lauterbrunnen valley, Mürren",
         },
         {
           meta: "20.5N 75.7E",
