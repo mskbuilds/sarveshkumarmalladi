@@ -6,6 +6,8 @@ import murrenImg1 from "@/assets/travel-murren-1.jpg";
 import murrenImg2 from "@/assets/travel-murren-2.jpg";
 import norwayImg1 from "@/assets/travel-norway-1.jpg";
 import norwayImg2 from "@/assets/travel-norway-2.jpg";
+import ajantaImg1 from "@/assets/travel-ajanta-1.jpg";
+import ajantaImg2 from "@/assets/travel-ajanta-2.jpg";
 
 export const Route = createFileRoute("/travel")({
   head: () => ({
@@ -59,7 +61,8 @@ function TravelPage() {
           meta: "20.5N 75.7E",
           title: "Ajanta & Ellora Caves, India",
           description: "Human ingenuity, focus, and patience at its finest — temples and monasteries carved straight into living rock over centuries. Standing inside one, you can feel the weight of every chisel strike.",
-          // image: "/travel/ajanta.jpg",
+          images: [ajantaImg1, ajantaImg2],
+          imageAlt: "Rock-cut Buddha and the Kailasa temple at Ajanta & Ellora",
         },
       ]}
     />
