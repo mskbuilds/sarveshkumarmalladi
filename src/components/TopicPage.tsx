@@ -41,41 +41,62 @@ export function TopicPage({ code, title, tagline, intro, items }: TopicPageProps
         </div>
 
         <div className="mt-20 grid gap-px bg-border">
-          {items.map((item, i) => (
-            <article
-              key={item.title}
-              className="bg-background p-8 md:p-10 hover:bg-card transition-colors fade-in"
-              style={{ animationDelay: `${i * 80}ms` }}
-            >
-              <div className="grid md:grid-cols-[120px_1fr] gap-6">
-                <div className="font-mono text-xs text-gold/70 tracking-widest pt-1">
-                  {item.meta}
+          {items.map((item, i) => {
+            const content = (
+              <>
+                <div className="grid md:grid-cols-[120px_1fr] gap-6">
+                  <div className="font-mono text-xs text-gold/70 tracking-widest pt-1">
+                    {item.meta}
+                  </div>
+                  <div>
+                    <h2 className="text-2xl font-mono text-foreground mb-3 group-hover:text-gold transition-colors inline-flex items-center gap-2">
+                      {item.title}
+                      {item.href && <ArrowUpRight className="w-5 h-5 opacity-0 group-hover:opacity-100 transition-opacity" />}
+                    </h2>
+                    {(() => {
+                      const imgs = item.images ?? (item.image ? [item.image] : []);
+                      if (imgs.length === 0) return null;
+                      return (
+                        <div className={`mb-4 grid gap-2 ${imgs.length > 1 ? "sm:grid-cols-2" : ""}`}>
+                          {imgs.map((src, idx) => (
+                            <div key={src} className="overflow-hidden border border-border bg-card">
+                              <img
+                                src={src}
+                                alt={item.imageAlt ? `${item.imageAlt} (${idx + 1})` : item.title}
+                                loading="lazy"
+                                className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      );
+                    })()}
+                    <p className="text-muted-foreground leading-relaxed">{item.description}</p>
+                  </div>
                 </div>
-                <div>
-                  <h2 className="text-2xl font-mono text-foreground mb-3">{item.title}</h2>
-                  {(() => {
-                    const imgs = item.images ?? (item.image ? [item.image] : []);
-                    if (imgs.length === 0) return null;
-                    return (
-                      <div className={`mb-4 grid gap-2 ${imgs.length > 1 ? "sm:grid-cols-2" : ""}`}>
-                        {imgs.map((src, idx) => (
-                          <div key={src} className="overflow-hidden border border-border bg-card">
-                            <img
-                              src={src}
-                              alt={item.imageAlt ? `${item.imageAlt} (${idx + 1})` : item.title}
-                              loading="lazy"
-                              className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-700"
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    );
-                  })()}
-                  <p className="text-muted-foreground leading-relaxed">{item.description}</p>
-                </div>
-              </div>
-            </article>
-          ))}
+              </>
+            );
+            return item.href ? (
+              <a
+                key={item.title}
+                href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-background p-8 md:p-10 hover:bg-card transition-colors fade-in group cursor-pointer"
+                style={{ animationDelay: `${i * 80}ms` }}
+              >
+                {content}
+              </a>
+            ) : (
+              <article
+                key={item.title}
+                className="bg-background p-8 md:p-10 hover:bg-card transition-colors fade-in"
+                style={{ animationDelay: `${i * 80}ms` }}
+              >
+                {content}
+              </article>
+            );
+          })}
         </div>
       </main>
     </div>
