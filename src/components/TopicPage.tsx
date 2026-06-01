@@ -7,6 +7,7 @@ interface Item {
   meta: string;
   description: string;
   image?: string;
+  images?: string[];
   imageAlt?: string;
 }
 
@@ -51,16 +52,24 @@ export function TopicPage({ code, title, tagline, intro, items }: TopicPageProps
                 </div>
                 <div>
                   <h2 className="text-2xl font-mono text-foreground mb-3">{item.title}</h2>
-                  {item.image && (
-                    <div className="mb-4 overflow-hidden border border-border bg-card">
-                      <img
-                        src={item.image}
-                        alt={item.imageAlt ?? item.title}
-                        loading="lazy"
-                        className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-700"
-                      />
-                    </div>
-                  )}
+                  {(() => {
+                    const imgs = item.images ?? (item.image ? [item.image] : []);
+                    if (imgs.length === 0) return null;
+                    return (
+                      <div className={`mb-4 grid gap-2 ${imgs.length > 1 ? "sm:grid-cols-2" : ""}`}>
+                        {imgs.map((src, idx) => (
+                          <div key={src} className="overflow-hidden border border-border bg-card">
+                            <img
+                              src={src}
+                              alt={item.imageAlt ? `${item.imageAlt} (${idx + 1})` : item.title}
+                              loading="lazy"
+                              className="w-full h-64 md:h-80 object-cover hover:scale-105 transition-transform duration-700"
+                            />
+                          </div>
+                        ))}
+                      </div>
+                    );
+                  })()}
                   <p className="text-muted-foreground leading-relaxed">{item.description}</p>
                 </div>
               </div>
