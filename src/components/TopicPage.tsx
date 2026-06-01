@@ -9,6 +9,7 @@ interface Item {
   image?: string;
   images?: string[];
   imageAlt?: string;
+  href?: string;
 }
 
 interface TopicPageProps {
