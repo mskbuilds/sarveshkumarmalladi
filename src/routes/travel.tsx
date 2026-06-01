@@ -4,6 +4,8 @@ import dungloeImg from "@/assets/travel-dungloe.jpg";
 import pragueImg from "@/assets/travel-prague.jpg";
 import murrenImg1 from "@/assets/travel-murren-1.jpg";
 import murrenImg2 from "@/assets/travel-murren-2.jpg";
+import norwayImg1 from "@/assets/travel-norway-1.jpg";
+import norwayImg2 from "@/assets/travel-norway-2.jpg";
 
 export const Route = createFileRoute("/travel")({
   head: () => ({
@@ -43,7 +45,8 @@ function TravelPage() {
           meta: "60.4N 5.3E",
           title: "Oslo → Bergen, Norway",
           description: "The scenic route across the country — trains threading mountain passes, a funicular up the cliffside, and a ferry gliding through the silent fjords. Postcard after postcard, in real time.",
-          // image: "/travel/norway.jpg",
+          images: [norwayImg1, norwayImg2],
+          imageAlt: "Fjords on the Oslo to Bergen scenic route",
         },
         {
           meta: "46.5N 7.9E",
