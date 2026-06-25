@@ -22,26 +22,26 @@ function Index() {
 
       <SiteHeader />
 
-      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-6 pt-24">
+      <main className="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 pt-24">
         {/* Top HUD */}
-        <div className="fade-in font-mono text-[10px] uppercase tracking-[0.4em] text-gold/70 mb-4 flex items-center gap-3">
-          <span className="w-2 h-2 rounded-full bg-gold animate-pulse" />
-          System online · Coordinates 51.5N · 0.1W
+        <div className="fade-in font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.3em] sm:tracking-[0.4em] text-gold/70 mb-4 flex items-center gap-2 sm:gap-3 text-center">
+          <span className="w-2 h-2 rounded-full bg-gold animate-pulse shrink-0" />
+          System online · 51.5N · 0.1W
         </div>
 
-        <h1 className="fade-in text-center text-5xl md:text-7xl font-mono text-foreground text-glow mb-3" style={{ animationDelay: "120ms" }}>
+        <h1 className="fade-in text-center text-3xl sm:text-5xl md:text-7xl font-mono text-foreground text-glow mb-3" style={{ animationDelay: "120ms" }}>
           Welcome to Nexus_01
         </h1>
-        <p className="fade-in text-center text-muted-foreground max-w-xl mb-12 text-base md:text-lg" style={{ animationDelay: "200ms" }}>
+        <p className="fade-in text-center text-muted-foreground max-w-xl mb-8 sm:mb-12 text-sm sm:text-base md:text-lg" style={{ animationDelay: "200ms" }}>
           A personal observatory. Orbit the planet to explore the worlds I build, draw, and travel through.
         </p>
 
-        <div className="fade-in" style={{ animationDelay: "300ms" }}>
+        <div className="fade-in w-full flex justify-center" style={{ animationDelay: "300ms" }}>
           <Planet />
         </div>
 
         {/* Bottom HUD strip */}
-        <div className="mt-12 flex items-center gap-6 font-mono text-[10px] uppercase tracking-[0.3em] text-muted-foreground fade-in" style={{ animationDelay: "500ms" }}>
+        <div className="mt-8 sm:mt-12 flex flex-wrap justify-center items-center gap-3 sm:gap-6 font-mono text-[9px] sm:text-[10px] uppercase tracking-[0.2em] sm:tracking-[0.3em] text-muted-foreground fade-in" style={{ animationDelay: "500ms" }}>
           <div className="flex items-center gap-2">
             <span className="text-gold">◢</span> Lat 28.61
           </div>

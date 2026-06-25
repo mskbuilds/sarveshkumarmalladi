@@ -50,5 +50,6 @@ export function Planet() {
         <div className="hud-corner border-b border-r bottom-0 right-0" />
       </div>
     </div>
+    </div>
   );
 }
