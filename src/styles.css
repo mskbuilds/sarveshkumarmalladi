@@ -124,9 +124,20 @@
 }
 
 /* Planet */
+.planet-wrap {
+  --stage-scale: min(1, calc((100vw - 32px) / 640));
+  width: calc(640px * var(--stage-scale));
+  height: calc(640px * var(--stage-scale));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .planet-stage {
   perspective: 1200px;
   transform-style: preserve-3d;
+  transform: scale(var(--stage-scale, 1));
+  transform-origin: center center;
+  flex-shrink: 0;
 }
 
 .planet {

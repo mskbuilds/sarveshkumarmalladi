@@ -2,12 +2,12 @@ import { Link } from "@tanstack/react-router";
 
 export function SiteHeader() {
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 px-6 py-5 backdrop-blur-md bg-background/40 border-b border-border">
-      <div className="max-w-7xl mx-auto flex items-center justify-between">
-        <Link to="/" className="font-mono text-sm tracking-widest text-gold">
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 sm:px-6 py-4 sm:py-5 backdrop-blur-md bg-background/40 border-b border-border">
+      <div className="max-w-7xl mx-auto flex items-center justify-between gap-3">
+        <Link to="/" className="font-mono text-xs sm:text-sm tracking-widest text-gold shrink-0">
           ◉ NEXUS_01
         </Link>
-        <nav className="flex items-center gap-6 font-mono text-xs uppercase tracking-widest">
+        <nav className="flex items-center gap-3 sm:gap-6 font-mono text-[10px] sm:text-xs uppercase tracking-widest">
           <Link to="/about" className="text-muted-foreground hover:text-gold transition-colors" activeProps={{ className: "text-gold" }}>
             About
           </Link>
