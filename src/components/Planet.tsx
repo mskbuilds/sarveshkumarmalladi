@@ -9,6 +9,7 @@ const nodes = [
 
 export function Planet() {
   return (
+    <div className="planet-wrap">
     <div className="planet-stage relative flex items-center justify-center" style={{ width: 640, height: 640 }}>
       {/* Orbits with nodes */}
       {nodes.map((n) => (
